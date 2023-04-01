@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ShoppingList1</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Welcome to Smart Shopping, the app where you can manage your shopping lists and savings</string>
+</resources>
