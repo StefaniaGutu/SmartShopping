@@ -4,4 +4,5 @@
     <string name="hello_blank_fragment">Welcome to Smart Shopping, the app where you can manage your shopping lists and savings</string>
     <string name="add_list">Edit list</string>
     <string name="delete_list">Delete list</string>
+    <string name="web_client_id">589546964119-6057io2ghsg0unsp5iug1k3un1ulp1fk.apps.googleusercontent.com</string>
 </resources>

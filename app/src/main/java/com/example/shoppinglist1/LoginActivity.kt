@@ -1,18 +1,28 @@
 package com.example.shoppinglist1
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.google.android.gms.auth.api.identity.BeginSignInRequest
+import com.google.android.gms.auth.api.identity.SignInClient
+import com.google.android.gms.common.SignInButton
+import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.ktx.Firebase
 
-class LoginActivity : AppCompatActivity() {
+open class LoginActivity : AppCompatActivity() {
 
     val databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://shoppinglist-e5b53-default-rtdb.firebaseio.com/")
 
@@ -24,6 +34,13 @@ class LoginActivity : AppCompatActivity() {
         val password = findViewById<EditText>(R.id.password)
         val loginButton = findViewById<Button>(R.id.loginButton)
         val registerNowBtn = findViewById<TextView>(R.id.registerNowButton)
+
+        val signInButton = findViewById<SignInButton>(R.id.sign_in_button)
+        signInButton.setSize(SignInButton.SIZE_WIDE);
+
+        signInButton.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, GoogleSignInActivity::class.java))
+        }
 
         loginButton.setOnClickListener{
             val emailText = emailAddress.text.toString()
