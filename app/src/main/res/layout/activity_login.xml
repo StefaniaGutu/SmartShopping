@@ -50,9 +50,7 @@
         android:layout_marginEnd="80dp"
         android:id="@+id/loginButton"
         android:text="Login"
-        android:layout_height="wrap_content"
-        android:background="#0D5750"
-        android:backgroundTint="#0D5750"/>
+        android:layout_height="wrap_content"/>
 
     <LinearLayout
         android:layout_width="wrap_content"

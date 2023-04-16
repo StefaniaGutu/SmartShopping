@@ -45,8 +45,13 @@ class LoginActivity : AppCompatActivity() {
                             if (getPassword.equals(passwordText)){
                                 Toast.makeText(this@LoginActivity, "Successfully logged in", Toast.LENGTH_SHORT).show()
 
+                                val fullnameText = snapshot.child(emailTextPath).child("fullname").getValue(String:: class.java)
+
                                 // open MainActivity
-                                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                                intent.putExtra("userEmail", emailText)
+                                intent.putExtra("userFullname", fullnameText)
+                                startActivity(intent)
                                 finish()
                             }
                             else{

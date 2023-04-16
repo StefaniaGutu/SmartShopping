@@ -4,15 +4,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoppinglist1.databinding.ShoppingListItemBinding
+import com.example.shoppinglist1.db.ListModel
 import com.example.shoppinglist1.db.ShoppingListModel
 
 class CustomAdapter(
-    private val onItemClick: (ShoppingListModel) -> Unit
+    private val onItemClick: (ListModel) -> Unit
 ) : RecyclerView.Adapter<CustomAdapter.ListHolder>() {
 
 
     lateinit var binding: ShoppingListItemBinding
-    var listItems = mutableListOf<ShoppingListModel>()
+    var listItems = mutableListOf<ListModel>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListHolder {
         binding = ShoppingListItemBinding
@@ -34,7 +35,7 @@ class CustomAdapter(
         return listItems.size
     }
 
-    fun update(list: List<ShoppingListModel>) {
+    fun update(list: List<ListModel>) {
         listItems.clear();
         listItems.addAll(list);
         notifyDataSetChanged()
