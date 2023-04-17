@@ -7,7 +7,8 @@ import com.google.firebase.database.IgnoreExtraProperties
 data class ListModel(val title: String? = null,
                      val description: String? = null,
                      val estimatedCost: Int? = 0,
-                     val userEmail: String? = null) {
+                     val userEmail: String? = null,
+                     val items: ArrayList<Item> = ArrayList()) {
     var id: String? = null
 
     override fun toString(): String = title + "\n" + description + "\n" + "Estimated cost: " + estimatedCost

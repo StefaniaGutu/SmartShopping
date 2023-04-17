@@ -9,7 +9,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.shoppinglist1.databinding.FragmentListDetailsBinding
+import com.example.shoppinglist1.db.Item
 import com.example.shoppinglist1.db.ListModel
 import com.example.shoppinglist1.db.ShoppingListModel
 import com.google.firebase.database.DataSnapshot
@@ -23,6 +25,8 @@ import kotlinx.coroutines.launch
 class ListDetailsFragment : Fragment() {
 
     lateinit var binding: FragmentListDetailsBinding
+    var list = ArrayList<Item>()
+    lateinit var adapter: CheckboxRecyclerViewAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,6 +43,23 @@ class ListDetailsFragment : Fragment() {
         var entity: ListModel
         var shareList: String = ""
 
+        adapter = CheckboxRecyclerViewAdapter(list)
+
+        binding.checkboxReciclerview.layoutManager = LinearLayoutManager(context)
+        binding.checkboxReciclerview.adapter = adapter
+
+        binding.floatingAdd.setOnClickListener {
+
+            val newItem = binding.newItem.text.toString()
+            list.add(Item(list.size, newItem))
+
+            binding.newItem.text = SpannableStringBuilder("")
+
+            lifecycleScope.launch {
+                adapter.update(list)
+            }
+        }
+
         val bundle = this.arguments
         if(bundle != null) {
             val id = bundle.getString(LIST_ID)
@@ -54,7 +75,12 @@ class ListDetailsFragment : Fragment() {
                     binding.estimatedCostEdit.text =
                         SpannableStringBuilder(entity.estimatedCost.toString())
 
+                    list = entity.items
                     shareList = entity.toString()
+
+                    lifecycleScope.launch {
+                        adapter.update(list)
+                    }
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -67,7 +93,8 @@ class ListDetailsFragment : Fragment() {
                     val updatedList = ListModel(binding.titleEdit.text.toString(),
                         binding.descriptionEdit.text.toString(),
                         binding.estimatedCostEdit.text.toString().toInt(),
-                        email
+                        email,
+                        items = list
                         )
                     curentEntryQuery.setValue(updatedList)
                 }
