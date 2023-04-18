@@ -6,10 +6,49 @@
     tools:context=".ProfileFragment"
     android:background="#BEE8E4">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/profile_image"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="200dp"
+       android:layout_gravity="center" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Profile"
+        android:textStyle="bold"
+        android:textSize="22dp"
         android:gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:id="@+id/userName"
+        android:gravity="center"
+        android:layout_marginTop="80dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:id="@+id/userEmail"
+        android:gravity="center"
+        android:layout_marginTop="170dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/logoutButton"
+        android:text="Log out"
+        android:layout_marginTop="180dp"
+        android:background="#0D5750"
+        android:backgroundTint="#0D5750"/>
 
 </FrameLayout>

@@ -21,34 +21,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val KEY_WELCOME = "welcome"
 
         userEmail = intent.getStringExtra("userEmail")!!
         userFullname = intent.getStringExtra("userFullname")!!
 
-        val sharedPreferences: SharedPreferences =
-            getSharedPreferences("SmartShoppingPreferences", Context.MODE_PRIVATE)
+        //trimit email-ul prin bundle catre lists fragment
+        val bundle = Bundle()
+        bundle.putString(USER_EMAIL, userEmail)
+        bundle.putString(USER_FULLNAME, userFullname)
 
-        if(!sharedPreferences.getBoolean(KEY_WELCOME, false)){
-            supportFragmentManager.beginTransaction()
-                .add(R.id.fragment_container, WelcomeFragment::class.java, null)
-                .commit()
+        val fragment = ListsFragment()
+        fragment.arguments = bundle
 
-            sharedPreferences.edit().putBoolean(KEY_WELCOME, true).apply()
-        }
-        else{
-            //trimit email-ul prin bundle catre lists fragment
-            val bundle = Bundle()
-            bundle.putString(USER_EMAIL, userEmail)
-            bundle.putString(USER_FULLNAME, userFullname)
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragment_container, fragment, null)
+            .commit()
 
-            val fragment = ListsFragment()
-            fragment.arguments = bundle
-
-            supportFragmentManager.beginTransaction()
-                .add(R.id.fragment_container, fragment, null)
-                .commit()
-        }
 
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){

@@ -1,6 +1,8 @@
 package com.example.shoppinglist1
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -20,10 +22,37 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        val KEY_WELCOME = "welcome"
+        val KEY_LOGGED_IN = "isLoggedIn"
+        val KEY_USER_EMAIL = "userEmail"
+        val KEY_USER_FULLNAME = "userFullname"
+
         val emailAddress = findViewById<EditText>(R.id.email)
         val password = findViewById<EditText>(R.id.password)
         val loginButton = findViewById<Button>(R.id.loginButton)
         val registerNowBtn = findViewById<TextView>(R.id.registerNowButton)
+
+        val sharedPreferences: SharedPreferences =
+            getSharedPreferences("SmartShoppingPreferences", Context.MODE_PRIVATE)
+
+        if(!sharedPreferences.getBoolean(KEY_WELCOME, false)){
+            supportFragmentManager.beginTransaction()
+                .add(R.id.fragment_container, WelcomeFragment::class.java, null)
+                .commit()
+
+            sharedPreferences.edit().putBoolean(KEY_WELCOME, true).apply()
+        }
+        else if (sharedPreferences.getBoolean(KEY_LOGGED_IN, false)){
+            val email = sharedPreferences.getString(KEY_USER_EMAIL, null)
+            val fullname = sharedPreferences.getString(KEY_USER_FULLNAME, null)
+
+            // open MainActivity
+            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+            intent.putExtra("userEmail", email)
+            intent.putExtra("userFullname", fullname)
+            startActivity(intent)
+            finish()
+        }
 
         loginButton.setOnClickListener{
             val emailText = emailAddress.text.toString()
@@ -46,6 +75,13 @@ class LoginActivity : AppCompatActivity() {
                                 Toast.makeText(this@LoginActivity, "Successfully logged in", Toast.LENGTH_SHORT).show()
 
                                 val fullnameText = snapshot.child(emailTextPath).child("fullname").getValue(String:: class.java)
+
+                                // update SharedPreferences
+                                val editor = sharedPreferences.edit()
+                                editor.putBoolean(KEY_LOGGED_IN, true)
+                                editor.putString(KEY_USER_EMAIL, emailText)
+                                editor.putString(KEY_USER_FULLNAME, fullnameText)
+                                editor.apply()
 
                                 // open MainActivity
                                 val intent = Intent(this@LoginActivity, MainActivity::class.java)
