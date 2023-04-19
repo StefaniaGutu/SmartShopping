@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoppinglist1.db.Item
 import com.example.shoppinglist1.db.ListModel
@@ -35,6 +36,7 @@ class CheckboxRecyclerViewAdapter(var list: MutableList<Item>): RecyclerView.Ada
 
     inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         var checkbox = itemView.findViewById<CheckBox>(R.id.checkbox)
+        var deleteItem = itemView.findViewById<ImageView>(R.id.deleteItemButton)
 
         init {
             checkbox.setOnClickListener {
@@ -46,6 +48,11 @@ class CheckboxRecyclerViewAdapter(var list: MutableList<Item>): RecyclerView.Ada
                     checkbox.isChecked = false
                     list[adapterPosition].isChecked = false
                 }
+            }
+
+            deleteItem.setOnClickListener{
+                list.removeAt(adapterPosition)
+                notifyDataSetChanged()
             }
         }
     }

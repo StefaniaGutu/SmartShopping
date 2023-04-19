@@ -36,9 +36,9 @@ class LoginActivity : AppCompatActivity() {
             getSharedPreferences("SmartShoppingPreferences", Context.MODE_PRIVATE)
 
         if(!sharedPreferences.getBoolean(KEY_WELCOME, false)){
-            supportFragmentManager.beginTransaction()
-                .add(R.id.fragment_container, WelcomeFragment::class.java, null)
-                .commit()
+//            supportFragmentManager.beginTransaction()
+//                .add(R.id.fragment_container, WelcomeFragment::class.java, null)
+//                .commit()
 
             sharedPreferences.edit().putBoolean(KEY_WELCOME, true).apply()
         }
