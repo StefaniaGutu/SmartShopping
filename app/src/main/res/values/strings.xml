@@ -2,7 +2,7 @@
     <string name="app_name">Smart Shopping</string>
     <string name="hello_blank_fragment">Welcome to Smart Shopping, the app where you can manage your shopping lists and savings</string>
     <string name="add_list">Add list</string>
-    <string name="edit_list">Edit list</string>
+    <string name="edit_list">Save list</string>
     <string name="share_list">Share</string>
     <string name="delete_list">Delete list</string>
 </resources>

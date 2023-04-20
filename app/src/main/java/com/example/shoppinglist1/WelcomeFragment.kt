@@ -26,9 +26,8 @@ class WelcomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         Handler(Looper.getMainLooper()).postDelayed({
             requireActivity().supportFragmentManager.beginTransaction()
-                .add(R.id.fragment_container, ListsFragment::class.java, null)
+                .add(R.id.fragment_container, LoginFragment::class.java, null)
                 .commit()
         }, 4000)
     }
-
 }

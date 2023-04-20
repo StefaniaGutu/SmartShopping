@@ -10,28 +10,29 @@
         android:orientation="vertical"
         tools:context=".AddListFragment">
 
+        <!-- TODO: Update blank fragment layout -->
         <EditText
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginStart="140dp"
+            android:layout_marginEnd="140dp"
             android:id="@+id/title_edit"
             android:hint="Title"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginStart="140dp"
+            android:layout_marginEnd="140dp"
             android:id="@+id/description_edit"
             android:hint="Description"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginStart="140dp"
+            android:layout_marginEnd="140dp"
             android:id="@+id/estimatedCost_edit"
             android:hint="Estimated cost"/>
 
@@ -39,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_marginStart="23dp"
+            android:layout_marginStart="143dp"
             android:layout_marginBottom="10dp"
             android:textSize="18dp"
             android:text="Items:"/>
@@ -47,8 +48,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginStart="160dp"
+            android:layout_marginEnd="160dp"
             android:id="@+id/checkboxReciclerview"
             android:scrollbars="vertical"/>
 
@@ -81,17 +82,17 @@
         <Button
             android:layout_width="match_parent"
             android:layout_marginTop="20dp"
-            android:layout_marginStart="80dp"
-            android:layout_marginEnd="80dp"
+            android:layout_marginStart="230dp"
+            android:layout_marginEnd="230dp"
             android:id="@+id/button_edit"
-            android:text = "@string/edit_list"
+            android:text="@string/edit_list"
             android:layout_height="wrap_content"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="80dp"
-            android:layout_marginEnd="80dp"
+            android:layout_marginStart="230dp"
+            android:layout_marginEnd="230dp"
             android:id="@+id/button_share"
             android:text="@string/share_list"
             android:layout_height="wrap_content"/>
@@ -99,8 +100,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="80dp"
-            android:layout_marginEnd="80dp"
+            android:layout_marginStart="230dp"
+            android:layout_marginEnd="230dp"
             android:layout_marginBottom="30dp"
             android:id="@+id/button_delete"
             android:text="@string/delete_list"
