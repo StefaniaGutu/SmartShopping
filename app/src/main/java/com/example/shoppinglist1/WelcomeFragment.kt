@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
+import androidx.constraintlayout.motion.widget.MotionLayout
 import com.example.shoppinglist1.databinding.FragmentListsBinding
 import com.example.shoppinglist1.databinding.FragmentWelcomeBinding
 
@@ -24,10 +26,42 @@ class WelcomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Handler(Looper.getMainLooper()).postDelayed({
-            requireActivity().supportFragmentManager.beginTransaction()
-                .add(R.id.fragment_container, LoginFragment::class.java, null)
-                .commit()
-        }, 4000)
+        requireActivity().window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
+        binding.mainLayout!!.startLayoutAnimation()
+        binding.mainLayout!!.setTransitionListener(object:MotionLayout.TransitionListener{
+            override fun onTransitionStarted(
+                motionLayout: MotionLayout?,
+                startId: Int,
+                endId: Int
+            ) {
+
+            }
+
+            override fun onTransitionChange(
+                motionLayout: MotionLayout?,
+                startId: Int,
+                endId: Int,
+                progress: Float
+            ) {
+
+            }
+
+            override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .add(R.id.fragment_container, LoginFragment::class.java, null)
+                    .commit()
+            }
+
+            override fun onTransitionTrigger(
+                motionLayout: MotionLayout?,
+                triggerId: Int,
+                positive: Boolean,
+                progress: Float
+            ) {
+
+            }
+
+        })
     }
 }

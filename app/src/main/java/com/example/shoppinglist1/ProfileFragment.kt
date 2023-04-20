@@ -1,5 +1,7 @@
 package com.example.shoppinglist1
 
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -8,6 +10,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.BounceInterpolator
+import android.view.animation.LinearInterpolator
 import com.example.shoppinglist1.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
@@ -57,5 +61,15 @@ class ProfileFragment : Fragment() {
             editor.putString(KEY_USER_FULLNAME, null)
             editor.apply()
         }
+
+        val scaleAnim = ObjectAnimator.ofFloat(binding.profileImage, View.SCALE_X, -1f, 1f).apply {
+            duration = 6000
+            repeatCount = ObjectAnimator.INFINITE
+            startDelay = 1000
+            repeatMode = ValueAnimator.RESTART
+            interpolator = BounceInterpolator()
+        }
+
+        scaleAnim.start()
     }
 }
