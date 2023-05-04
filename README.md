@@ -14,7 +14,7 @@ In aplicatie sunt folosite 2 RecyclerView-uri:
 </p>
 
 - un RecyclerView simplu este folosit pentru listarea produselor din listele de cumparaturi
-<img src="https://user-images.githubusercontent.com/79320751/236267319-b17d960c-05fb-4d6f-a175-367121be1588.png" width="250">
+<img src="https://user-images.githubusercontent.com/79320751/236272197-71b17028-b71d-41a3-92c0-3ef89c7a1819.png" width="250">
 
 ### :white_check_mark: Utilizarea unei metode de navigatie: Bottom Navigation
 
