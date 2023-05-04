@@ -1,17 +1,15 @@
 package com.example.shoppinglist1
 
-import android.util.SparseBooleanArray
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.shoppinglist1.db.Item
-import com.example.shoppinglist1.db.ListModel
+import com.example.shoppinglist1.db_models.ItemModel
 
 
-class CheckboxRecyclerViewAdapter(var list: MutableList<Item>): RecyclerView.Adapter<CheckboxRecyclerViewAdapter.ViewHolder>() {
+class CheckboxRecyclerViewAdapter(var list: MutableList<ItemModel>): RecyclerView.Adapter<CheckboxRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val context = parent.context
@@ -21,7 +19,7 @@ class CheckboxRecyclerViewAdapter(var list: MutableList<Item>): RecyclerView.Ada
         return ViewHolder(view)
     }
 
-    fun update(new_list: MutableList<Item>) {
+    fun update(new_list: MutableList<ItemModel>) {
         list = new_list
         notifyDataSetChanged()
     }

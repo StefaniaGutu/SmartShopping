@@ -8,11 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.shoppinglist1.databinding.FragmentAddListBinding
 import com.example.shoppinglist1.databinding.FragmentListsBinding
-import com.example.shoppinglist1.db.ListModel
-import com.example.shoppinglist1.db.ShoppingListModel
+import com.example.shoppinglist1.db_models.ListModel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -26,11 +23,6 @@ class ListsFragment : Fragment() {
     lateinit var binding: FragmentListsBinding
     lateinit var initialList: ArrayList<ListModel>
     lateinit var adapter: CustomAdapter
-
-
-    val repository: ListRepository by lazy {
-        ListRepository(requireContext())
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

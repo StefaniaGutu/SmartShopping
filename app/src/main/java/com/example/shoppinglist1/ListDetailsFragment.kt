@@ -2,7 +2,6 @@ package com.example.shoppinglist1
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Spannable
 import android.text.SpannableStringBuilder
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,21 +10,18 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.shoppinglist1.databinding.FragmentListDetailsBinding
-import com.example.shoppinglist1.db.Item
-import com.example.shoppinglist1.db.ListModel
-import com.example.shoppinglist1.db.ShoppingListModel
+import com.example.shoppinglist1.db_models.ItemModel
+import com.example.shoppinglist1.db_models.ListModel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.values
-import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.launch
 
 class ListDetailsFragment : Fragment() {
 
     lateinit var binding: FragmentListDetailsBinding
-    var list = ArrayList<Item>()
+    var list = ArrayList<ItemModel>()
     lateinit var adapter: CheckboxRecyclerViewAdapter
 
     override fun onCreateView(
@@ -51,7 +47,7 @@ class ListDetailsFragment : Fragment() {
         binding.floatingAdd.setOnClickListener {
 
             val newItem = binding.newItem.text.toString()
-            list.add(Item(list.size, newItem))
+            list.add(ItemModel(list.size, newItem))
 
             binding.newItem.text = SpannableStringBuilder("")
 

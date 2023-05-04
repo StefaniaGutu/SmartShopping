@@ -4,8 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoppinglist1.databinding.ShoppingListItemBinding
-import com.example.shoppinglist1.db.ListModel
-import com.example.shoppinglist1.db.ShoppingListModel
+import com.example.shoppinglist1.db_models.ListModel
 
 class CustomAdapter(
     private val onItemClick: (ListModel) -> Unit

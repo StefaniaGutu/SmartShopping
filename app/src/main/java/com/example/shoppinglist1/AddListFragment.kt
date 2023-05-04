@@ -9,15 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.shoppinglist1.databinding.FragmentAddListBinding
-import com.example.shoppinglist1.db.Item
-import com.example.shoppinglist1.db.ListModel
-import com.example.shoppinglist1.db.ShoppingListModel
+import com.example.shoppinglist1.db_models.ItemModel
+import com.example.shoppinglist1.db_models.ListModel
 import kotlinx.coroutines.launch
 
 class AddListFragment : Fragment() {
 
     lateinit var binding: FragmentAddListBinding
-    var list = ArrayList<Item>()
+    var list = ArrayList<ItemModel>()
     lateinit var adapter: CheckboxRecyclerViewAdapter
 
     override fun onCreateView(
@@ -40,7 +39,7 @@ class AddListFragment : Fragment() {
         binding.floatingAdd.setOnClickListener {
 
             val newItem = binding.newItem.text.toString()
-            list.add(Item(list.size, newItem))
+            list.add(ItemModel(list.size, newItem))
 
             binding.newItem.text = SpannableStringBuilder("")
 
