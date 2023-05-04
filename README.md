@@ -22,6 +22,11 @@ In aplicatie sunt folosite 2 RecyclerView-uri:
 
 ### :white_check_mark: Implementarea unei metode de Share (Android Sharesheet)
 
+<p float="left">
+<img src="https://user-images.githubusercontent.com/79320751/236288189-9084b5a9-74af-4cfe-accb-3dcf11d07bc3.png" width="250">
+<img src="https://user-images.githubusercontent.com/79320751/236288476-c4f4a5f7-83d0-4459-8819-b372427a5b9f.png" width="250">
+</p>
+
 ### :white_check_mark: Local Notifications using Firebase
 
 Am folosit Firebase Messaging pentru a crea si trimite notificari.
@@ -52,9 +57,10 @@ Am folosit Firebase Messaging pentru a crea si trimite notificari.
 
 ### :white_check_mark: Persistenta datelor folosind baze de date (remote: Firebase)
 
-Am folosit Firestore Realtime Database pentru a stoca listele de cumparaturi si informatii despre utilizatorii inregistrati.
+Am folosit Firebase Realtime Database pentru a stoca listele de cumparaturi si informatii despre utilizatorii inregistrati.
 
 ### :white_check_mark: Web services (Firebase)
 
+Am folosit serviciile de la Firebase pentru a trimite notificari (Firebase Messaging) si pentru a stoca datele din baza de date (Firebase Realtime Database).
 
 
