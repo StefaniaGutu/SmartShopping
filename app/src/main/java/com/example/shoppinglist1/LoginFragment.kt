@@ -52,7 +52,7 @@ class LoginFragment : Fragment() {
                             val getPassword = snapshot.child(emailTextPath).child("password").getValue(String:: class.java)
 
                             if (getPassword.equals(passwordText)){
-                                Toast.makeText(activity, "Successfully logged in", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(requireActivity(), "Successfully logged in", Toast.LENGTH_SHORT).show()
 
                                 val fullnameText = snapshot.child(emailTextPath).child("fullname").getValue(String:: class.java)
 

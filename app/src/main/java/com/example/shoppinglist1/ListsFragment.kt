@@ -5,11 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.shoppinglist1.databinding.FragmentAddListBinding
 import com.example.shoppinglist1.databinding.FragmentListsBinding
 import com.example.shoppinglist1.db.ListModel
+import com.example.shoppinglist1.db.ShoppingListModel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -21,8 +24,9 @@ const val LIST_ID = "list_id"
 class ListsFragment : Fragment() {
 
     lateinit var binding: FragmentListsBinding
-
+    lateinit var initialList: ArrayList<ListModel>
     lateinit var adapter: CustomAdapter
+
 
     val repository: ListRepository by lazy {
         ListRepository(requireContext())
@@ -42,6 +46,19 @@ class ListsFragment : Fragment() {
         val mainBundle = this.arguments
         val email = mainBundle?.getString(USER_EMAIL)
 
+        binding.searchView!!.clearFocus()
+        binding.searchView!!.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                filterList(newText)
+                return true
+            }
+
+        })
+
         adapter = CustomAdapter { model ->
             //trimit id prin bundle catre edit fragment
             val bundle = Bundle()
@@ -58,6 +75,7 @@ class ListsFragment : Fragment() {
                 .commit()
         }
 
+        initialList = adapter.listItems as ArrayList<ListModel>
         binding.recyclerView.adapter = adapter
 
         binding.floatingAdd.setOnClickListener{
@@ -74,6 +92,29 @@ class ListsFragment : Fragment() {
                 .replace(R.id.fragment_container, fragment, null)
                 .addToBackStack(null)
                 .commit()
+        }
+    }
+
+    private fun filterList(text: String) {
+        if(text == "" || text == null){
+            adapter.listItems = initialList
+            adapter.notifyDataSetChanged()
+        }
+        else{
+            val filteredList = ArrayList<ListModel>()
+            for (item in initialList){
+                if(item.title!!.lowercase().contains(text.lowercase())){
+                    filteredList.add(item)
+                }
+            }
+
+            if(filteredList.isEmpty()){
+                Toast.makeText(activity, "No data found", Toast.LENGTH_SHORT).show()
+            }
+
+            adapter.listItems = filteredList
+            adapter.notifyDataSetChanged()
+
         }
     }
 

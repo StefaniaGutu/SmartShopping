@@ -36,8 +36,8 @@ class CustomAdapter(
     }
 
     fun update(list: List<ListModel>) {
-        listItems.clear();
-        listItems.addAll(list);
+        listItems.clear()
+        listItems.addAll(list)
         notifyDataSetChanged()
     }
 
