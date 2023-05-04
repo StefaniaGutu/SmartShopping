@@ -24,6 +24,10 @@ In aplicatie sunt folosite 2 RecyclerView-uri:
 
 ### :white_check_mark: Local Notifications using Firebase
 
+Am folosit Firebase Messaging pentru a crea si trimite notificari.
+
+<img src="https://user-images.githubusercontent.com/79320751/236277440-690a4d0a-e0b2-441c-92be-149d12b9fce3.png" width="270">
+
 ### :white_check_mark: Implementarea unei animatii folosind ObjectAnimator si a uneia folosind MotionLayout
 - animatia folosind ObjectAnimator poate fi gasita pe Profilul utilizatorului, iar animatia folosind MotionLayout se afla pe Splash Screen
 
@@ -42,6 +46,9 @@ In aplicatie sunt folosite 2 RecyclerView-uri:
 </p>
 
 ### :white_check_mark: UI adaptat pentru landscape mode
+<img src="https://user-images.githubusercontent.com/79320751/236276901-82c1f745-0385-4046-8a33-063a4b823a72.png" height="250">
+<img src="https://user-images.githubusercontent.com/79320751/236276915-7b32a837-b9bc-4533-8a4a-6de5b1524c78.png" height="250">
+<img src="https://user-images.githubusercontent.com/79320751/236276929-33395760-7354-424e-9dfc-0b869d3d3bdc.png" height="250">
 
 ### :white_check_mark: Persistenta datelor folosind baze de date (remote: Firebase)
 
