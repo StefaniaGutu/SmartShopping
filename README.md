@@ -25,23 +25,27 @@ In aplicatie sunt folosite 2 RecyclerView-uri:
 ### :white_check_mark: Local Notifications using Firebase
 
 ### :white_check_mark: Implementarea unei animatii folosind ObjectAnimator si a uneia folosind MotionLayout
-- animatia folosind ObjectAnimator poate fi gasita pe Profilul utilizatorului
+- animatia folosind ObjectAnimator poate fi gasita pe Profilul utilizatorului, iar animatia folosind MotionLayout se afla pe Splash Screen
 
-
-
-- animatia folosind MotionLayout se afla pe Splash Screen
-
-![welcome](https://user-images.githubusercontent.com/79320751/236254763-36a1cebd-9ad0-44c2-b15d-f01c2df1c462.png)
-
+<p float="left">
+<img src="https://user-images.githubusercontent.com/79320751/236267807-ef4114d4-6cac-45f3-acf1-abcdf882514c.png" width="250">
+<img src="https://user-images.githubusercontent.com/79320751/236270554-3bcf3560-0af4-4e25-ba3b-b21370233f10.png" width="250">
+</p>
 
 ### :white_check_mark: Login with Firebase
 - Login, Register si buton pentru Log out pe Profil
 
-![login](https://user-images.githubusercontent.com/79320751/236262468-9724c556-2c62-4537-b92b-f29305d558e4.png)
+<p float="left">
+<img src="https://user-images.githubusercontent.com/79320751/236268451-011e220b-828d-441c-a024-a297aa4c1911.png" width="250">
+<img src="https://user-images.githubusercontent.com/79320751/236268461-ee0fafc1-848b-407d-ab3e-3a8817c58cb2.png" width="250">
+<img src="https://user-images.githubusercontent.com/79320751/236267807-ef4114d4-6cac-45f3-acf1-abcdf882514c.png" width="250">
+</p>
 
 ### :white_check_mark: UI adaptat pentru landscape mode
 
 ### :white_check_mark: Persistenta datelor folosind baze de date (remote: Firebase)
+
+Am folosit Firestore Realtime Database pentru a stoca listele de cumparaturi si informatii despre utilizatorii inregistrati.
 
 ### :white_check_mark: Web services (Firebase)
 
